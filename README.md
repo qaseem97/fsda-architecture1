@@ -142,12 +142,4 @@ Each should print the same result for the `zscoreFS` test:
 | Extra moving part | None | The server process must be running |
 | Transport | In-process function calls | HTTP + JSON |
 
-## Troubleshooting
-
-| Problem | Fix |
-|---|---|
-| `matlabengine` build fails with a version mismatch | Re-check `version` in MATLAB and install the exact matching `matlabengine==<version>.*` |
-| Server hangs on startup | MATLAB Engine can take 10–20 seconds to start — this is normal, wait for the Uvicorn line |
-| `Connection refused` from a client | The server isn't running, or is on a different port — check the terminal running `uvicorn` |
-| `NaN` or complex struct fields cause a 500 error | Extend `make_json_safe()` in `server.py` to handle the new MATLAB return type |
-| Port 8000 already in use | Run with a different port: `uvicorn src.server.server:app --port 8001`, and update `config.yaml` / clients to match |
+<img width="1618" height="972" alt="architecture diagram" src="https://github.com/user-attachments/assets/f482e809-e2cb-4bfa-b882-aba82124b169" />
